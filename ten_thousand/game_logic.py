@@ -33,7 +33,7 @@ class GameLogic():
         
         else:
             for item in most_common:
-                if item[0] == 1 and item[1] < 3:
+                if item[0] == 1 and item[1] < 3: ##[(1, 2), ]
                     sum += 100 * item[1]
                 if item[0] == 1 and item[1] == 3:
                     sum += 1000
@@ -45,7 +45,7 @@ class GameLogic():
                     sum += 8000
                 if item[0] == 5 and item[1] < 3:
                     sum += 50 * item[1]
-                if item[1] == 2:
+                if item[1] == 2: ## [(2, 2), (3, 2), (4, 2), (6, 2)]
                     sum += 0
                 if item[1] == 3 and item[0] != 1:
                     sum += 100 * item[0]
