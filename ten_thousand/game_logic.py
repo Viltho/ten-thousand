@@ -5,6 +5,7 @@ class GameLogic():
     def __init__(self):
         pass
 
+    @staticmethod
     def roll_dice(rdt):
         times = 0
         arr_times = []
@@ -22,7 +23,6 @@ class GameLogic():
         sum = 0
         count_result = Counter(roll_dice)
         most_common = count_result.most_common()
-        print(most_common)
         if len(most_common) == 6:
             sum += 2000
             return sum
@@ -57,14 +57,10 @@ class GameLogic():
                     sum += 800 * item[0]
             return sum
             
-    def run_dice(number):
-        GameLogic.roll_dice(number)
-        GameLogic.calculate_score()
+    
 
-after_input_ofdice = GameLogic.roll_dice(6)
-after_calculating_score = GameLogic.calculate_score(after_input_ofdice)
+# after_input_ofdice = GameLogic.roll_dice(6)
+# after_calculating_score = GameLogic.calculate_score(after_input_ofdice)
 
-# print(after_input_ofdice)
-print(after_calculating_score)
-
-
+# # print(after_input_ofdice)
+# print(after_calculating_score)
