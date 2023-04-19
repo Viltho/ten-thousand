@@ -2,7 +2,6 @@ import builtins
 import difflib
 import sys
 
-
 def diff(game_play_func, path="", sample=""):
     """runs a given game play function and compares output with contents of given simulation
 

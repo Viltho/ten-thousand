@@ -2,8 +2,6 @@ import pytest
 from tests.flo import diff
 from ten_thousand.game import play
 
-pytestmark = [pytest.mark.version_2]
-
 
 def test_quitter():
     diffs = diff(play, path="tests/quitter.sim.txt")
@@ -12,6 +10,7 @@ def test_quitter():
 
 def test_one_and_done():
     diffs = diff(play, path="tests/one_and_done.sim.txt")
+    print(diffs)
     assert not diffs, diffs
 
 
