@@ -1,4 +1,4 @@
-from ten_thousand.game_logic import GameLogic
+from game_logic import GameLogic
 
 calculator = GameLogic.calculate_score
 total_score = 0
@@ -37,22 +37,27 @@ def start_round(round = 1, new_total_score = total_score, dice_count = 6):
             user_input = input("> ")
             if user_input == "q" and dice_count != 0:
                 quit(new_total_score)
+            elif not isinstance(int(user_input), (int)):
+                print("Cheating ?")
             else:
                 kept_dices = tuple(int (x) for x in user_input)
-                dice_count = dice_count - len(kept_dices)
-                score = calculator(kept_dices)
-                # total_score = total_score + score
-                print("You have {} unbanked points and {} dice remaining".format(score, dice_count))
-                print("(r)oll again, (b)ank your points or (q)uit:")
-                user_choice = input("> ")
-                if user_choice == "q":
-                    quit(new_total_score)
-                elif user_choice == "r":
-                    new_total_score += score
-                    start_round(round, new_total_score, dice_count)
-                elif user_choice == "b":
-                    new_total_score += score
-                    banking(score, round, new_total_score)
+                if set(kept_dices).intersection(set(six_dice)):
+                    dice_count = dice_count - len(kept_dices)
+                    score = calculator(kept_dices)
+                    # total_score = total_score + score
+                    print("You have {} unbanked points and {} dice remaining".format(score, dice_count))
+                    print("(r)oll again, (b)ank your points or (q)uit:")
+                    user_choice = input("> ")
+                    if user_choice == "q":
+                        quit(new_total_score)
+                    elif user_choice == "r":
+                        new_total_score += score
+                        start_round(round, new_total_score, dice_count)
+                    elif user_choice == "b":
+                        new_total_score += score
+                        banking(score, round, new_total_score)
+                else:
+                    print("You are cheating")
 
 def banking(score, round, new_total_score):
 #            5 function banking store print total score store and starts round function
