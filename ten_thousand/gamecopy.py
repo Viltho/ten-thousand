@@ -59,6 +59,16 @@ def start_round(round = 1, new_total_score = total_score, dice_count = 6, unbank
             else:
                 print("Cheater!!! or maybe was a a typo")
 
+# def zelch_handler():
+
+
+# def correct_intersection(six_dice, kept_dices):
+#     if set(kept_dices).intersection(set(six_dice)):
+#         dice_count = dice_count - len(kept_dices)
+#         score = calculator(kept_dices)
+#     else:
+#         print("Cheater!!! or maybe was a a typo")
+
 def banking(round, new_total_score, unbanked_score):
 #            5 function banking store print total score store and starts round function
         print("You banked {} points in round {}\nTotal score is {} points".format(unbanked_score, round, new_total_score))
