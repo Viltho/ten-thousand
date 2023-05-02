@@ -56,6 +56,30 @@ class GameLogic():
                 if item[1] == 6 and item[0] != 1:
                     sum += 800 * item[0]
             return sum
+        
+    def get_scorers(roll_dice):
+        main_score = GameLogic.calculate_score(roll_dice)
+        scorers = []
+        input_list = list(roll_dice)
+        for i, val in enumerate(input_list):
+            input_list.pop(i)
+            element_score = GameLogic.calculate_score(tuple(input_list))
+            if element_score != main_score:
+                scorers.append(val)
+                input_list.insert(i,val)
+            else:
+                input_list.insert(i, val)
+        scorers_tuple = tuple(scorers)
+        return scorers_tuple
+
+    def validate_keepers(roll, keepers):
+        roll= list(roll)
+        for elem in keepers:
+            if elem not in roll:
+                return False
+            else:
+                roll.pop(roll.index(elem))
+        return True
             
     
 
